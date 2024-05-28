@@ -1,3 +1,5 @@
 export const EmojiComponent: React.FC<{ text: string }> = ({ text }) => (
-  <div>{text}</div>
+  <div className="chat chat-start ">
+    <p className="chat-bubble text-3xl">{text}</p>
+  </div>
 );

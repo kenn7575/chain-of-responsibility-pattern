@@ -1,3 +1,5 @@
 export const TextComponent: React.FC<{ text: string }> = ({ text }) => (
-  <div>{text}</div>
+  <div className="chat chat-start">
+    <p className="chat-bubble">{text}</p>
+  </div>
 );

@@ -13,12 +13,27 @@ export const ChatRenderer: React.FC<{ data: ChatItem[] }> = ({ data }) => {
   imageHandler.setNext(gifHandler).setNext(textHandler).setNext(emojiHandler);
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {data.map((message, index) => (
         <div key={index}>
           {imageHandler.handle(message) || (
             <div>
-              {message.type} request was not handled {")"}:
+              <div role="alert" className="alert alert-error w-fit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>Error displaying this message.</span>
+              </div>
             </div>
           )}
         </div>
